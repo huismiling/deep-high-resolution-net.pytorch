@@ -1,6 +1,9 @@
 # Deep High-Resolution Representation Learning for Human Pose Estimation (CVPR 2019)
 ## News
-- If you are interested in internship or research positions related to computer vision in ByteDance AI Lab, feel free to contact me(leoxiaobin-at-gmail.com).
+- [2020/07/05] [A very nice blog](https://towardsdatascience.com/overview-of-human-pose-estimation-neural-networks-hrnet-higherhrnet-architectures-and-faq-1954b2f8b249) from Towards Data Science introducing HRNet and HigherHRNet for human pose estimation.
+- [2020/03/13] A longer version is accepted by TPAMI: [Deep High-Resolution Representation Learning for Visual Recognition](https://arxiv.org/pdf/1908.07919.pdf). It includes more HRNet applications, and the codes are available: [semantic segmentation](https://github.com/HRNet/HRNet-Semantic-Segmentation),  [objection detection](https://github.com/HRNet/HRNet-Object-Detection),  [facial landmark detection](https://github.com/HRNet/HRNet-Facial-Landmark-Detection), and [image classification](https://github.com/HRNet/HRNet-Image-Classification).
+- [2020/02/01] We have added demo code for HRNet. Thanks [Alex Simes](https://github.com/alex9311). 
+- Visualization code for showing the pose estimation results. Thanks Depu!
 - [2019/08/27] HigherHRNet is now on [ArXiv](https://arxiv.org/abs/1908.10357), which is a bottom-up approach for human pose estimation powerd by HRNet. We will also release code and models at [Higher-HRNet-Human-Pose-Estimation](https://github.com/HRNet/Higher-HRNet-Human-Pose-Estimation), stay tuned!
 - Our new work [High-Resolution Representations for Labeling Pixels and Regions](https://arxiv.org/abs/1904.04514) is available at [HRNet](https://github.com/HRNet). Our HRNet has been applied to a wide range of vision tasks, such as [image classification](https://github.com/HRNet/HRNet-Image-Classification), [objection detection](https://github.com/HRNet/HRNet-Object-Detection), [semantic segmentation](https://github.com/HRNet/HRNet-Semantic-Segmentation) and [facial landmark](https://github.com/HRNet/HRNet-Facial-Landmark-Detection).
 
@@ -219,9 +222,28 @@ python tools/train.py \
     --cfg experiments/coco/hrnet/w32_256x192_adam_lr1e-3.yaml \
 ```
 
+### Visualization
+
+#### Visualizing predictions on COCO val
+
+```
+python visualization/plot_coco.py \
+    --prediction output/coco/w48_384x288_adam_lr1e-3/results/keypoints_val2017_results_0.json \
+    --save-path visualization/results
+
+```
+
+
+<img src="figures\visualization\coco\score_610_id_2685_000000002685.png" height="215"><img src="figures\visualization\coco\score_710_id_153229_000000153229.png" height="215"><img src="figures\visualization\coco\score_755_id_343561_000000343561.png" height="215">
+
+<img src="figures\visualization\coco\score_755_id_559842_000000559842.png" height="209"><img src="figures\visualization\coco\score_770_id_6954_000000006954.png" height="209"><img src="figures\visualization\coco\score_919_id_53626_000000053626.png" height="209">
 
 ### Other applications
 Many other dense prediction tasks, such as segmentation, face alignment and object detection, etc. have been benefited by HRNet. More information can be found at [High-Resolution Networks](https://github.com/HRNet).
+
+### Other implementation
+[mmpose](https://github.com/open-mmlab/mmpose)
+
 
 ### Citation
 If you use our code or models in your research, please cite with:
@@ -245,8 +267,7 @@ If you use our code or models in your research, please cite with:
   author={Jingdong Wang and Ke Sun and Tianheng Cheng and 
           Borui Jiang and Chaorui Deng and Yang Zhao and Dong Liu and Yadong Mu and 
           Mingkui Tan and Xinggang Wang and Wenyu Liu and Bin Xiao},
-  journal   = {CoRR},
-  volume    = {abs/1908.07919},
+  journal   = {TPAMI}
   year={2019}
 }
 ```
